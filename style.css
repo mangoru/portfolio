@@ -1,0 +1,17 @@
+h1 {
+    text-align:center;
+}
+
+header {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+a {
+    text-decoration:none;
+}
+/*#MainMenu {*/
+/*    visibility: hidden;*/
+/*}*/
