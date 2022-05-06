@@ -2,6 +2,14 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from PIL import Image
 
+
+from streamlit_drawable_canvas import st_canvas
+from tensorflow import keras
+import numpy as np
+import pandas as pd
+
+model = None  # Digital Recognized Model
+
 with open("style.css") as f:  # css
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
@@ -9,7 +17,6 @@ with open("style.css") as f:  # css
 st.markdown(""" 
 
     """, unsafe_allow_html=True)
-
 with open("nav.html") as f:  # nav
     st.markdown(f'{f.read()}', unsafe_allow_html=True)
 
@@ -89,6 +96,37 @@ with st.container():  # Projects
             st.image(titanic_img, width=IMAGE_WIDTH)
         with col2:
             st.markdown("""
-                In this project, I used TensorFlow and Keras to build a handwritten digit recognition convolutional neural network,
+                In this project, I used TensorFlow and Keras to build a handwritten Digit Recognition Convolutional Neural Network,
                  trained with the MNIST Dataset.
             """)
+            with st.expander("Try Model, Draw a Digit"):
+                if model is None:
+                    model = keras.models.load_model('cnn-digit-recognizer98acc.h5')
+                # Create a canvas component
+                canvas_result = st_canvas(
+                    stroke_width=10,
+                    stroke_color='#FFFFFF',
+                    background_color='#000000',
+                    update_streamlit=True,
+                    height=300,
+                    width=400,
+                    drawing_mode='freedraw',
+                    display_toolbar=True,
+                    key="streamlit_app",
+                )
+
+                # Do something interesting with the image data and paths
+                if canvas_result.image_data is not None:
+                    image = Image.fromarray(canvas_result.image_data)
+                    image = image.resize((28, 28))
+                    image = image.convert('L')
+                    digit = np.asarray(image)
+                    # st.write(digit)
+                    if (digit == 0).sum() < 760:
+                        digit = digit.reshape((1, 28, 28, 1))
+                        pred_one_hot = model.predict(digit)
+                        y_pred = np.argmax(pred_one_hot, axis=1)
+                        st.write(f"## Predict: {y_pred[0]}")
+                    else:
+                        st.write("## Predict: ?")
+

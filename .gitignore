@@ -1,2 +1,5 @@
 .idea
 venv
+test.csv
+train.csv
+maria.ipynb
