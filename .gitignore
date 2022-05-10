@@ -2,4 +2,6 @@
 venv
 test.csv
 train.csv
-maria.ipynb
+bins.ipynb
+cnn
+cnn-digit-recognizer.html
