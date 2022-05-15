@@ -48,43 +48,20 @@ st.write("## Skills")
 with st.container():  # Skills
     st.markdown("""
     - Python :snake: (numpy, pandas, plotly, matplotlib, streamlit)
-    - MySql, PostgresSql 
+    - MySql :dolphin:  PostgreSQL :elephant:  Hive :honeybee: 
     - TensorFlow, scikit-learn
-       
+    - Docker :whale:
+    - Linux (Ubuntu)z
+    - Teamwork - Attention to detail - Creativity - Authenticity - Stress management 
     """)
 
 st.write("## Projects and Experience:")
 with st.container():  # Projects
     IMAGE_WIDTH = 180
-    with st.container():  # Titanic Project
-        st.markdown("""
-        #### [Titanic Survived Prediction (+80% Acc)](https://www.kaggle.com/code/walteralvarado/ml-and-neural-network-80-acc)
-        """)
-        col1, col2 = st.columns([10, 25])
-        with col1:
-            titanic_img = Image.open('img/titanic.jpeg')
-            st.image(titanic_img, width=IMAGE_WIDTH)
-        with col2:
-            st.markdown("""
-            In this project, I'm going to predict if a Passenger was Survived or not, using ML models and Neural-Network models.
-            - For ML used Randon Forest and XGBoost
-            - For NN use Three Hidden Layers with Dropout, Batch Normalization and Relu Activation (in the last layer used Sigmoid).
-            """)
-
-    with st.container():  # Wine Project
-        st.markdown("""
-        #### [Wine Quality, Regression vs Classification (keras)](https://www.kaggle.com/code/walteralvarado/wine-quality-regression-vs-classification-keras/notebook)
-        """)
-        col1, col2 = st.columns([10, 25])
-        with col1:
-            titanic_img = Image.open('img/wine.jpg')
-            st.image(titanic_img, width=IMAGE_WIDTH)
-        with col2:
-            st.markdown("""
-            In this project, I'm going to predict The Quality of a wine, comparing two methods, Classification and Regression.
-            - For Classification method, the last layer it's a Dense 10 layer with softmax activation
-            - For Regression method, the last layer it's a Dense 1 layer without activation
-            """)
+    st.write("""
+    These are only some of my favorite projects.
+    Many, many more can be found in my GitHub Repositories.
+    """)
 
     with st.container():  # Digits Recognized
         st.markdown("""
@@ -129,4 +106,35 @@ with st.container():  # Projects
                         st.write(f"## Predict: {y_pred[0]}")
                     else:
                         st.write("## Predict: ?")
+
+    with st.container():  # Titanic Project
+        st.markdown("""
+        #### [Titanic Survived Prediction (+80% Acc)](https://www.kaggle.com/code/walteralvarado/ml-and-neural-network-80-acc)
+        """)
+        col1, col2 = st.columns([10, 25])
+        with col1:
+            titanic_img = Image.open('img/titanic.jpeg')
+            st.image(titanic_img, width=IMAGE_WIDTH)
+        with col2:
+            st.markdown("""
+            In this project, I'm going to predict if a Passenger was Survived or not, using ML models and Neural-Network models.
+            - For ML used Randon Forest and XGBoost
+            - For NN use Three Hidden Layers with Dropout, Batch Normalization and Relu Activation (in the last layer used Sigmoid).
+            """)
+
+    with st.container():  # Wine Project
+        st.markdown("""
+        #### [Wine Quality, Regression vs Classification (keras)](https://www.kaggle.com/code/walteralvarado/wine-quality-regression-vs-classification-keras/notebook)
+        """)
+        col1, col2 = st.columns([10, 25])
+        with col1:
+            titanic_img = Image.open('img/wine.jpg')
+            st.image(titanic_img, width=IMAGE_WIDTH)
+        with col2:
+            st.markdown("""
+            In this project, I'm going to predict The Quality of a wine, comparing two methods, Classification and Regression.
+            - For Classification method, the last layer it's a Dense 10 layer with softmax activation
+            - For Regression method, the last layer it's a Dense 1 layer without activation
+            """)
+
 
