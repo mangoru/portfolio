@@ -106,7 +106,7 @@ with st.container():  # Projects
 
     with st.container():  # Crypto ETL
         st.markdown("""
-        #### [Crypto ETL](https://www.kaggle.com/code/walteralvarado/ml-and-neural-network-80-acc)
+        #### [Crypto ETL](https://github.com/mangoru/crypto-ETL)
         """)
         col1, col2 = st.columns([10, 25])
         with col1:
