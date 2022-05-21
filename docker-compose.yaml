@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  python-streamlit:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: python-streamlit
+    volumes:
+      - .:/app
+    ports:
+      - "8501:8501"

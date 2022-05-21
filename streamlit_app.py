@@ -1,3 +1,4 @@
+from weakref import ref
 import streamlit as st
 from streamlit_option_menu import option_menu
 from PIL import Image
@@ -13,10 +14,6 @@ model = None  # Digital Recognized Model
 with open("style.css") as f:  # css
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-# Bootstrap
-st.markdown(""" 
-
-    """, unsafe_allow_html=True)
 with open("nav.html") as f:  # nav
     st.markdown(f'{f.read()}', unsafe_allow_html=True)
 
@@ -47,11 +44,11 @@ with st.container():  # About me
 st.write("## Skills")
 with st.container():  # Skills
     st.markdown("""
-    - Python :snake: (numpy, pandas, plotly, matplotlib, streamlit)
+    - Python :snake: (numpy, pandas ,plotly, matplotlib, streamlit)
     - MySql :dolphin:  PostgreSQL :elephant:  Hive :honeybee: 
-    - TensorFlow, scikit-learn
+    - TensorFlow, scikit-learn, spark (pyspark), airflow
     - Docker :whale:
-    - Linux (Ubuntu)z
+    - Linux (Ubuntu)
     - Teamwork - Attention to detail - Creativity - Authenticity - Stress management 
     """)
 
@@ -106,6 +103,21 @@ with st.container():  # Projects
                         st.write(f"## Predict: {y_pred[0]}")
                     else:
                         st.write("## Predict: ?")
+
+    with st.container():  # Crypto ETL
+        st.markdown("""
+        #### [Crypto ETL](https://www.kaggle.com/code/walteralvarado/ml-and-neural-network-80-acc)
+        """)
+        col1, col2 = st.columns([10, 25])
+        with col1:
+            titanic_img = Image.open('img/crypto1.png')
+            st.image(titanic_img, width=IMAGE_WIDTH)
+        with col2:
+            st.markdown("""
+            In this project, I'm created a **ETL Processs** to get cryptocurrency data from [Coinmarketcap](https://coinmarketcap.com/api) API 
+            to after normalize and load to postgres database. 
+            - For pipline creation, I've using *Airflow*.
+            """)    
 
     with st.container():  # Titanic Project
         st.markdown("""
